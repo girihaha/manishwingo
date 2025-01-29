@@ -1,48 +1,88 @@
 import React, { useState, useEffect } from 'react';
-import { Gift, Users, Trophy, Bell, Home, Gift as GiftIcon, Users as CommunityIcon, Siren as Fire, GamepadIcon, Sparkles, Crown, Star } from 'lucide-react';
+import { Gift, Users, Trophy, Bell, Home, Gift as GiftIcon, Users as CommunityIcon, Siren as Fire, GamepadIcon, Sparkles, Crown, Star, MessageCircle } from 'lucide-react';
 
 const platforms = [
   {
     id: 1,
-    name: "DMWIN",
+    name: "DMWIN HACK",
     icon: <GamepadIcon className="w-16 h-16 text-white/90" />,
     link: "https://www.dmwin1.com/#/register?invitationCode=763831339391",
     badge: "🔥 TOP RATED",
-    description: "Best Gaming Experience",
-    features: ["Daily Rewards", "24/7 Support", "Instant Payouts"]
+    description: "Best Earning Experience",
+    features: ["Instant Withdrawal", "24/7 Support", "Daily Bonuses"]
   },
   {
     id: 2,
-    name: "91club",
+    name: "91CLUB HACK",
     icon: <Crown className="w-16 h-16 text-white/90" />,
     link: "https://www.hjIndia.com/#/register?invitationCode=3542786305",
     badge: "💎 EXCLUSIVE",
-    description: "Massive Rewards Daily",
-    features: ["VIP Benefits", "Special Events", "Huge Bonuses"]
+    description: "Maximum Daily Earnings",
+    features: ["Fast Payouts", "Special Events", "Huge Returns"]
   },
   {
     id: 3,
-    name: "Daman Club",
+    name: "DAMAN CLUB HACK",
     icon: <Star className="w-16 h-16 text-white/90" />,
     link: "https://damanclub.bet/#/register?invitationCode=ER5DY11003",
     badge: "⚡ HOT",
-    description: "Premium Gaming Hub",
-    features: ["Elite Games", "Fast Withdrawals", "Pro Support"]
+    description: "Premium Earning Hub",
+    features: ["Quick Withdrawals", "Pro Support", "Daily Income"]
+  }
+];
+
+const reviews = [
+  {
+    name: "Rajesh Kumar",
+    content: "Working perfectly! Got my withdrawal in just 2 hours. Best service ever! 🔥",
+    rating: 5
+  },
+  {
+    name: "Priya Sharma",
+    content: "Daily earnings are amazing. Support team is very helpful. Recommended! ⭐",
+    rating: 5
+  },
+  {
+    name: "Amit Patel",
+    content: "Fast withdrawal process. Everything works as promised. Great platform! 💯",
+    rating: 5
   }
 ];
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
   
   const navLinks = [
     { icon: Home, label: 'Home', href: '#' },
-    { icon: Trophy, label: 'Rewards', href: 'https://t.me/+RY8FWRfsUAk3MTk1' },
-    { icon: Bell, label: 'Updates', href: 'https://t.me/best_colour_games' },
+    { icon: Trophy, label: 'Daily Gift Code', href: 'https://t.me/+RY8FWRfsUAk3MTk1' },
+    { icon: Bell, label: 'Daily Predictions', href: 'https://t.me/best_colour_games' },
     { icon: Users, label: 'Community', href: 'https://t.me/best_colour_games' }
   ];
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSupport(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-effect">
+      {showSupport && (
+        <div className="fixed bottom-4 right-4 z-50 animate-bounce">
+          <a
+            href="https://t.me/Royalmanishah"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span>Customer Support</span>
+          </a>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <button
@@ -94,10 +134,10 @@ function Navbar() {
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-    "🎮 Join Now for Exclusive Daily Rewards!",
-    "🎁 New Members Get Special Bonus!",
-    "🏆 Win Big with Our Top Platforms!",
-    "💎 VIP Benefits Waiting for You!"
+    "💰 Start Earning Now!",
+    "🎁 Daily Gift Codes Available!",
+    "💎 Instant Withdrawals!",
+    "🔥 Join Thousands of Earners!"
   ];
 
   useEffect(() => {
@@ -120,10 +160,10 @@ function Hero() {
         <div className="space-y-6">
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-tighter animate-title">
             <span className="block mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-              BEST GAMING
+              MONEY EARNING
             </span>
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[#ff3333] to-[#ff4444]">
-              PLATFORMS
+              HACK SITES
             </span>
           </h1>
           <div className="h-20 sm:h-24 flex items-center justify-center overflow-hidden">
@@ -139,7 +179,7 @@ function Hero() {
             rel="noopener noreferrer"
             className="button-primary px-6 py-4 sm:px-10 sm:py-5 rounded-xl text-xl sm:text-2xl animate-bounce-slow"
           >
-            Daily Gift Code 🎁
+            Join For Daily Gift Code 🎁
           </a>
           <a
             href="https://t.me/best_colour_games"
@@ -147,7 +187,7 @@ function Hero() {
             rel="noopener noreferrer"
             className="button-secondary px-6 py-4 sm:px-10 sm:py-5 rounded-xl text-xl sm:text-2xl animate-bounce-slow"
           >
-            Join Predictions 🎯
+            Join For Daily Predictions 🎯
           </a>
         </div>
       </div>
@@ -187,7 +227,7 @@ function PlatformCard({ platform }: { platform: typeof platforms[0] }) {
               rel="noopener noreferrer"
               className="button-primary mt-auto block w-full py-4 text-center rounded-xl text-xl"
             >
-              Play Now 🎮
+              Hack Now 🎮
             </a>
           </div>
         </div>
@@ -196,12 +236,35 @@ function PlatformCard({ platform }: { platform: typeof platforms[0] }) {
   );
 }
 
+function ReviewCard({ review }: { review: typeof reviews[0] }) {
+  return (
+    <div className="bg-[#111] p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300">
+      <div className="flex items-center space-x-4 mb-4">
+        <div className="flex-shrink-0">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-xl font-bold">
+            {review.name[0]}
+          </div>
+        </div>
+        <div>
+          <h4 className="text-lg font-bold text-white">{review.name}</h4>
+          <div className="flex text-yellow-500">
+            {Array.from({ length: review.rating }).map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-current" />
+            ))}
+          </div>
+        </div>
+      </div>
+      <p className="text-white/80">{review.content}</p>
+    </div>
+  );
+}
+
 function NewsTickerBanner() {
   return (
     <div className="relative overflow-hidden py-4 sm:py-6 bg-[#111] border-y border-white/10">
       <div className="ticker whitespace-nowrap font-bold text-lg sm:text-2xl text-white/90">
-        🎁 Daily Gift Codes Available! • 🎯 Expert Predictions • 💰 Massive Rewards • 🎮 Elite Gaming Community • 
-        ⚡ Instant Payouts • 💎 VIP Benefits • 🏆 Weekly Tournaments • 🚀 Join Now!
+        🎁 Daily Gift Codes Available! • 🎯 Expert Predictions • 💰 Instant Withdrawals • 
+        ⚡ Fast Payouts • 💎 VIP Benefits • 🏆 Daily Earnings • 🚀 Join Now!
       </div>
     </div>
   );
@@ -220,12 +283,20 @@ function App() {
               <PlatformCard key={platform.id} platform={platform} />
             ))}
           </div>
+          <div className="mt-24">
+            <h2 className="text-4xl font-bold text-center mb-12">User Reviews</h2>
+            <div className="grid gap-8 md:grid-cols-3">
+              {reviews.map((review, index) => (
+                <ReviewCard key={index} review={review} />
+              ))}
+            </div>
+          </div>
         </div>
       </main>
       <footer className="border-t border-white/10 py-8 sm:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
           <p className="text-xl sm:text-2xl font-bold text-white/90">
-            © 2024 Created with 💖 by Manish
+            © 2024 Created with 💖 by ROYAL MANISH
           </p>
         </div>
       </footer>
